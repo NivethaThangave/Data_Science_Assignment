@@ -19,7 +19,7 @@ def encode(encoded_input):
    elif (encoded_input[i]==data):
       count = count + 1
    else:
-      encoded_output = encoded_output+str(count)+data
+      encoded_output = encoded_output+str(count) + data
       count = 1
    data = encoded_input[i]
   encoded_output = encoded_output+str(count)+data
