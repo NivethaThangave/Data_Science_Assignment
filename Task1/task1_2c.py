@@ -1,5 +1,4 @@
 def encode(encoded_input):
-  print("Passing the Input string " + encoded_input + " to get the encoded string" )
   encoded_output = ''
   data = ''
   encoded_input_check = any(i.isdigit() for i in encoded_input)
@@ -26,19 +25,19 @@ def encode(encoded_input):
   return(encoded_output)
 
 
-def decode(a):
+def decode(encrytpedValue):
     data=''
     letterCount=0
     iterator =0
     internalIterator = 0
-    while iterator<len(a):
-        if(a[iterator].isnumeric()):
-            letterCount = letterCount + int(a[iterator])
+    while iterator<len(encrytpedValue):
+        if(encrytpedValue[iterator].isnumeric()):
+            letterCount = letterCount + int(encrytpedValue[iterator])
             internalIterator = internalIterator+1
             conditionCheck = False
-            for k in range(iterator+1,len(a)):
-                if(a[k].isnumeric() and conditionCheck == False):
-                    letterCount = (letterCount*10) + int(a[k])
+            for k in range(iterator+1,len(encrytpedValue)):
+                if(encrytpedValue[k].isnumeric() and conditionCheck == False):
+                    letterCount = (letterCount*10) + int(encrytpedValue[k])
                     internalIterator = internalIterator+1
                 else:
                     conditionCheck = True
@@ -46,12 +45,13 @@ def decode(a):
             iterator = iterator + internalIterator
             internalIterator=0
         for j in range(0, letterCount):
-            data = data + a[iterator]
+            data = data + encrytpedValue[iterator]
         letterCount = 0
         iterator = iterator+1
     return data 
 
 input_data = "APPLE" 
+ 
 print("Input string: "+ input_data)
 encodeoutput = encode(input_data)
 print("Encoded Output of "+input_data+": "+ encodeoutput)
