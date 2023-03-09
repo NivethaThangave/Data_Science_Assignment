@@ -50,7 +50,7 @@ def dice():
             if(No_of_legs==6):
                 BeetleLegs=True
         elif(BeetleBody==True and BeetleHead==True and BeetleAntenna==True and BeetleEyes==True and BeetleMouth==True and BeetleLegs==True and Beetle==False):
-                print(" Congradulations!!!! You have Collected all the parts of the Beetle and assembled it.. The overall move is " + str(n))
+                print(" Congratulations!!!! You have Collected all the parts of the Beetle and assembled it.. The overall move is " + str(n))
                 Beetle=True
     return("Hence the game is Over.!!!!!")
 print(dice())
