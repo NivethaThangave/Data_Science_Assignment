@@ -10,21 +10,21 @@ plt.style.use('default')
 # To indicate the x data
 x=foodData.Year
 # To Indicate the Y data
-y=foodData.Percentagee
+y=foodData.Percentage
 # Plotting the normal graph using x and y axis
 plt.plot(x,y)
 
-# converting the pandas dataset column Percentagee to a numpy array by following below:
-mov_avg = foodData['Percentagee'].to_numpy()
+# converting the pandas dataset column Percentage to a numpy array by following below:
+mov_avg = foodData['Percentage'].to_numpy()
 
 # giving the mean_interval as 3 , so that it will calculate as a1+a2+a3/(n)
 mean_interval = 3
-# craeting a Simple Moving Average function which pass Percentagee and Mean_interval value to calculate the Simple Moving Average for the foodData Percentagee
-def SMA(Percentagee, mean_interval):
+# craeting a Simple Moving Average function which pass Percentage and Mean_interval value to calculate the Simple Moving Average for the foodData Percentagee
+def SMA(Percentage, mean_interval):
     i = 0
     moving_averages = []
-    while i < len(Percentagee) - mean_interval + 1:
-        window = Percentagee[i : i + mean_interval]
+    while i < len(Percentage) - mean_interval + 1:
+        window = Percentage[i : i + mean_interval]
         window_average = round(np.sum(window) / mean_interval, 2)
         moving_averages.append(window_average)
         i += 1
