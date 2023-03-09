@@ -1,4 +1,4 @@
-def e(input_data):
+def encrypt_string(input_data):
   output_data = ''
   storing_data = ''
   count = 0
@@ -13,5 +13,5 @@ def e(input_data):
    storing_data = input_data[i] 
   output_data = output_data+str(count)+storing_data
   return(output_data)
-outputData = e("kkkkk")
+outputData = encrypt_string("kkkkk")
 print("Output Value : "+ outputData)
