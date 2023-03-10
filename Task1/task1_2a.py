@@ -16,8 +16,9 @@ def encrypt_string(input_data):
     count = 1
    # storing each iteration value in storing_data 
    storing_data = input_data[i] 
-   # The output_data will store the final result  
+   # The output_data will store the final result  which concatenate the previous output value and the present count and the present iterated character.
   output_data = output_data+str(count)+storing_data
   return(output_data)
+# calling the function and storing the result in outputData
 outputData = encrypt_string("BBOO")
 print("Output Value : "+ outputData)
