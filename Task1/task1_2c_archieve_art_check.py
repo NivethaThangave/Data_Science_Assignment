@@ -1,5 +1,5 @@
+
 def encode(encoded_input):
-  print("Passing the Input string " + encoded_input + " to get the encoded string" )
   encoded_output = ''
   data = ''
   encoded_input_check = any(i.isdigit() for i in encoded_input)
@@ -14,33 +14,45 @@ def encode(encoded_input):
    print("Hurray!!! your Input String is not empty and doesn't contain any integer value.. so it's perfect to be encoded..")   
    print("Creating a For-loop with range 0 to the length of the given encoded_input in order to get all the given encoded_input string as one by one character.")
   for i in range(0,len(encoded_input)):
+   # To check if the data is empty or not if not the count will be assigned to 1       
    if (data==''):
       count = 1
+   # To check if the iterated input string index character is equal to the character stored in the data or not, If its equal the count value will get increased to 1   
    elif (encoded_input[i]==data):
       count = count + 1
+   # The below else part will be achieved when the abive two condition fails, will be succeed only when the previous and next character in a string are not equal, so the count will get assigned to 1 to calculate the new string.   
    else:
       encoded_output = encoded_output+str(count)+data
       count = 1
+   # storing the each iterated inout string data in data variable   
    data = encoded_input[i]
+  # The encoded output will store the previous concatenated output value, its count and each iterated data stored in data variable. 
   encoded_output = encoded_output+str(count)+data
+  #Returning encoded output for the function encode
   return(encoded_output)
 
 
 def decode(a):
+    # variable initializations
     data=''
     letterCount=0
     iterator =0
     internalIterator = 0
+    # iterating the loop till it reaches the given length of the input string 
     while iterator<len(a):
+        # checking whether the a[i] value is numeric or not, the a[i] value will get vary for each time when the i value get increased for each iteration..
         if(a[iterator].isnumeric()):
             letterCount = letterCount + int(a[iterator])
             internalIterator = internalIterator+1
             conditionCheck = False
+            # checking the second charater whether its numeric or not
             for k in range(iterator+1,len(a)):
                 if(a[k].isnumeric() and conditionCheck == False):
+                    # To check and store if the encoded output contains any integer character value before 10
                     letterCount = (letterCount*10) + int(a[k])
                     internalIterator = internalIterator+1
                 else:
+                    # Initializing the conditioncheck to true in-order to stop the loop 
                     conditionCheck = True
                     
             iterator = iterator + internalIterator
@@ -49,13 +61,7 @@ def decode(a):
             data = data + a[iterator]
         letterCount = 0
         iterator = iterator+1
-    return data
-
-
-
-
-
-
+    return data 
 
 input_data = """ 
                      ***********************
@@ -80,8 +86,13 @@ input_data = """
             ********                         *******
                *********************************
                     *********************** """ 
+ 
 print("Input string: "+ input_data)
+#calling encode function.
 encodeoutput = encode(input_data)
+#Printing encoded output.
 print("Encoded Output of "+input_data+": "+ encodeoutput)
+# calling decode function by passing encoded output as an input value
 decodeoutput = decode(encodeoutput)
+# Printing decoded output.
 print('decoded output:'+ decodeoutput)
